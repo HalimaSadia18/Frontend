@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - CoffeeCrafted</title>
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/checkout.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<style>
+    body {
+        background:
+            linear-gradient(to right, #532c1f, rgba(202, 193, 190, 0.8) 25%, rgba(214, 195, 181, 0.89) 50%, rgba(160, 82, 45, 0.8) 75%, #532c1f),
+            linear-gradient(to bottom, rgba(210, 180, 140, 0.5), rgba(139, 69, 19, 0.5)),
+            linear-gradient(to right, rgba(255, 248, 220, 0.6), rgba(250, 235, 215, 0.6) 30%, rgba(245, 222, 179, 0.7) 70%, rgba(244, 164, 96, 0.7)),
+            linear-gradient(to bottom, rgba(255, 228, 196, 0.4), rgba(222, 184, 135, 0.4)),
+            linear-gradient(to top, rgba(255, 245, 238, 0.3), rgba(244, 164, 96, 0.3));
+        height: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-blend-mode: multiply;
+        padding-top: 5%;
+    }
+    .navClose-btn,
+    .navOpen-btn,
+    .media-icons {
+        display: none;
+    }
+</style>
+
+<body>
+
+    <!-- Header -->
+    <!-- <header class="header">
+    <nav class="nav container flex">
+        <a href="index.html" class="logo-content flex">
+            <i class='bx bx-coffee logo-icon'></i>
+            <span class="logo-text">CoffeeCrafted.</span>
+        </a>
+        <div class="contact-content flex">
+            <i class='bx bx-phone phone-icon'></i>
+            <span class="phone-number">0022-0303-2030</span>
+        </div>
+    </nav>
+</header> -->
+    <header class="header">
+        <nav class="nav container flex">
+            <a href="#" class="logo-content flex">
+                <i class='bx bx-coffee logo-icon'></i>
+                <span class="logo-text">CoffeeCrafted.</span>
+            </a>
+
+            <div class="menu-content">
+                <ul class="menu-list flex">
+                    <li><a href="index.html" class="nav-link ">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="menu.html" class="nav-link">Menu</a></li>
+
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="service.html" class="nav-link">Services</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="checkout.html" class="nav-link active-navlink">Checkout</a></li>
+
+                </ul>
+                <i class='bx bx-x navClose-btn'></i>
+            </div>
+
+            <div class="contact-content flex">
+                <i class='bx bx-phone phone-icon'></i>
+                <span class="phone-number">0022-0303-2030</span>
+            </div>
+            <!-- cart icon -->
+            <div class="cart_icon" id="cartIcon">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cartCount">0</span>
+            </div>
+            <i class='bx bx-menu navOpen-btn'></i>
+        </nav>
+
+    </header>
+    <!-- cart popup -->
+    <div id="cartPopup">
+        <div id="cartHeader">
+            <h2>Your Cart</h2>
+            <button id="closeCart"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div id="cartItems"></div>
+        <div id="cartFooter">
+            <button id="clearCart">Clear Cart</button>
+            <div id="totalAmount">
+                <strong>Total:</strong><span id="total">Rs.0</span>
+            </div>
+        </div>
+        <a href="checkout.html" class="checkout">Checkout</a>
+    </div>
+
+
+    <!-- Checkout Section -->
+    <main>
+        <section class="checkout-section container">
+            <h1 class="section-title">Checkout</h1>
+
+            <div class="checkout-content">
+                <!-- Client Details Form -->
+                <div class="client-details">
+                    <h3 class="form-title">Client Details</h3>
+                    <form action="#" method="POST" class="checkout-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="email@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="0022-0303-2030" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" id="address" name="address" placeholder="Enter your address" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" name="city" placeholder="Enter your city" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="zip">Zip Code</label>
+                            <input type="text" id="zip" name="zip" placeholder="Enter your zip code" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="payment">Payment Method</label>
+                            <select id="payment" name="payment" required>
+                                <option value="credit-card">Credit Card</option>
+                                <option value="paypal">PayPal</option>
+                                <option value="bank-transfer">Bank Transfer</option>
+                                <option value="bank-transfer">Cash on Delivery</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="orderplace"><a href="order.html">Place Order</a></button>
+                    </form>
+                </div>
+
+                <!-- Cart Summary -->
+                <div class="cart-summary">
+                    <h3 class="summary-title">Cart Summary</h3>
+                    <ul class="cart-items">
+                        <li class="cart-item flex">
+                            <span class="item-name">Latte Coffee</span>
+                            <span class="item-price">Rs.990.00</span>
+                        </li>
+                        <li class="cart-item flex">
+                            <span class="item-name">Black Coffee</span>
+                            <span class="item-price">Rs.340.99</span>
+                        </li>
+                        <li class="cart-item flex">
+                            <span class="item-name">Cappuccino Coffee</span>
+                            <span class="item-price">Rs.550.99</span>
+                        </li>
+                        <li class="cart-item flex">
+                            <span class="item-name">Espresso Coffee</span>
+                            <span class="item-price">Rs.650.99</span>
+                        </li>
+                    </ul>
+                    <div class="total flex">
+                        <span class="total-text">Total:</span>
+                        <span class="total-price">Rs.3500.97</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="section footer">
+        <div class="footer-container container">
+            <div class="footer-content">
+                <a href="index.html" class="logo-content flex">
+                    <i class='bx bx-coffee logo-icon'></i>
+                    <span class="logo-text">CoffeeCrafted.</span>
+                </a>
+                <p class="content-description">Coffee is a cafe that serves various coffee variants and dishes in a very
+                    comfortable setting.</p>
+                <div class="footer-location flex">
+                    <i class='bx bx-map map-icon'></i>
+                    <div class="location-text">
+                        USA Californa 65 South Fifth St.Sicklerville, NJ 08081
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-linkContent">
+                <ul class="footer-links">
+                    <h4 class="footerLinks-title">Facility</h4>
+                    <li><a href="#" class="footer-link">Private Room</a></li>
+                    <li><a href="#" class="footer-link">Meeting Room</a></li>
+                    <li><a href="#" class="footer-link">Event Room</a></li>
+                    <li><a href="#" class="footer-link">Creative Studio</a></li>
+                    <li><a href="#" class="footer-link">Custom Room</a></li>
+                </ul>
+                <ul class="footer-links">
+                    <h4 class="footerLinks-title">Products</h4>
+                    <li><a href="#" class="footer-link">Coffee</a></li>
+                    <li><a href="#" class="footer-link">Beverages</a></li>
+                    <li><a href="#" class="footer-link">Dishes</a></li>
+                </ul>
+                <ul class="footer-links">
+                    <h4 class="footerLinks-title">Support</h4>
+                    <li><a href="#" class="footer-link">About Us</a></li>
+                    <li><a href="#" class="footer-link">FAQs</a></li>
+                    <li><a href="#" class="footer-link">Private Policy</a></li>
+                    <li><a href="#" class="footer-link">Help Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
